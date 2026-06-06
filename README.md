@@ -22,7 +22,8 @@ docs/generated/
 Open PowerShell or Command Prompt and move to the mapper directory:
 
 ```powershell
-cd D:\minh
+git clone https://github.com/minhnguyen1108/ai-legacy-code-mapper.git
+cd ai-legacy-code-mapper
 ```
 
 Run the bundled example:
@@ -34,7 +35,7 @@ Run the bundled example:
 Analyze a local Laravel project:
 
 ```powershell
-.\analyze.cmd "D:\HiFPT\hi-report-api"
+.\analyze.cmd "C:\projects\legacy-laravel-app"
 ```
 
 Important path rules:
@@ -62,19 +63,19 @@ because the shallow clone is temporary. Use `--output` to choose another folder.
 Choose a custom output directory:
 
 ```powershell
-.\analyze.cmd "D:\HiFPT\hi-report-api" --output "D:\reports\hi-report-api"
+.\analyze.cmd "C:\projects\legacy-laravel-app" --output "C:\reports\legacy-laravel-app"
 ```
 
 Use OpenAI for Vietnamese business explanations:
 
 ```powershell
-.\analyze.cmd "D:\HiFPT\hi-report-api" --provider openai
+.\analyze.cmd "C:\projects\legacy-laravel-app" --provider openai
 ```
 
 Use a local Ollama model:
 
 ```powershell
-.\analyze.cmd "D:\HiFPT\hi-report-api" --provider ollama --model qwen2.5-coder:7b
+.\analyze.cmd "C:\projects\legacy-laravel-app" --provider ollama --model qwen2.5-coder:7b
 ```
 
 By default, AI is disabled. Route mapping, call graphs, ERD, sequence diagrams,
@@ -85,7 +86,7 @@ static explanations and risk findings still work without an API key.
 Run all automated tests:
 
 ```powershell
-cd D:\minh
+cd ai-legacy-code-mapper
 .\test.cmd
 ```
 
@@ -102,23 +103,23 @@ Run an end-to-end scan without AI:
 .\analyze.cmd ".\examples\laravel5-support" --provider none
 ```
 
-The `.cmd` scripts use the bundled Codex Python runtime on this machine. A
-separate Python installation is not required.
+Python 3.11 or newer is required. The MVP uses only the Python standard library,
+so no package installation is needed.
 
 ## Troubleshooting
 
-### Project path is joined with `D:\minh`
+### Project path is joined with the current directory
 
 Incorrect:
 
 ```powershell
-.\analyze.cmd ".D:\HiFPT\hi-report-api"
+.\analyze.cmd ".C:\projects\legacy-laravel-app"
 ```
 
 Correct:
 
 ```powershell
-.\analyze.cmd "D:\HiFPT\hi-report-api"
+.\analyze.cmd "C:\projects\legacy-laravel-app"
 ```
 
 ### Python opens Microsoft Store
