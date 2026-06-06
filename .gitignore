@@ -1,0 +1,7 @@
+.env
+.env.local
+__pycache__/
+.pytest_cache/
+.legacy-code-mapper/
+**/docs/generated/
+build/
